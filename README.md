@@ -1,2 +1,1 @@
-# ManaProbe-react
-ManaProbe website
+# Mana Probe
