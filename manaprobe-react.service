@@ -1,0 +1,15 @@
+[Unit]
+Description=ManaProbe-react systemd service
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/npm run start
+WorkingDirectory=/path/to/manaprobe-react
+RestartSec=10
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=manaprobe-react
+
+[Install]
+WantedBy=multi-user.target
