@@ -2,24 +2,24 @@
 
 ## Introduction
 
-ManaProbe is a mobile-friendly, multi-page marketing website built to showcase and promote the ManaProbe mobile app. The site presents app features, screenshots, and download links across dedicated pages (Home, Features, About, Contact) with responsive navigation. The design is derived from existing ManaProbe logo assets using a custom color theme, and the site uses React Router for client-side navigation with a collapsible hamburger menu on mobile viewports.
+Manaprobe is a mobile-friendly, multi-page marketing website built to showcase and promote the Manaprobe mobile app. The site presents app features, screenshots, and download links across dedicated pages (Home, Features, About, Contact) with responsive navigation. The design is derived from existing Manaprobe logo assets using a custom color theme, and the site uses React Router for client-side navigation with a collapsible hamburger menu on mobile viewports.
 
 ## Glossary
 
-- **Website**: The ManaProbe React application serving as a marketing landing site for the ManaProbe mobile app.
+- **Website**: The Manaprobe React application serving as a marketing landing site for the Manaprobe mobile app.
 - **Navigation_Bar**: The persistent header component containing the site logo and navigation links visible on all pages.
 - **Hamburger_Menu**: A collapsible mobile navigation component triggered by a hamburger icon that reveals navigation links in a slide-out or dropdown panel.
 - **Page**: A distinct route-based view within the Website (Home, Features, About, or Contact).
 - **Breakpoint**: The viewport width threshold (768px) that determines whether the desktop or mobile navigation layout is displayed.
-- **Theme**: The custom color scheme and visual styling derived from the ManaProbe logo assets in the images_new/ directory.
+- **Theme**: The custom color scheme and visual styling derived from the Manaprobe logo assets in the images_new/ directory.
 - **Hero_Section**: The prominent introductory area on the Home page containing the app headline, description, and download call-to-action.
-- **Download_Link**: A hyperlink or button directing users to the app store listing for the ManaProbe mobile app.
+- **Download_Link**: A hyperlink or button directing users to the app store listing for the Manaprobe mobile app.
 
 ## Requirements
 
 ### Requirement 1: Multi-Page Routing
 
-**User Story:** As a visitor, I want to navigate between distinct pages so that I can find specific information about the ManaProbe app.
+**User Story:** As a visitor, I want to navigate between distinct pages so that I can find specific information about the Manaprobe app.
 
 #### Acceptance Criteria
 
@@ -34,7 +34,7 @@ ManaProbe is a mobile-friendly, multi-page marketing website built to showcase a
 #### Acceptance Criteria
 
 1. WHILE the viewport width is at or above the Breakpoint, THE Navigation_Bar SHALL display all page links horizontally.
-2. THE Navigation_Bar SHALL display the ManaProbe logo as a clickable element that navigates to the Home page.
+2. THE Navigation_Bar SHALL display the Manaprobe logo as a clickable element that navigates to the Home page.
 3. WHEN a visitor clicks a navigation link, THE Website SHALL navigate to the corresponding Page and visually indicate the active link.
 
 ### Requirement 3: Mobile Hamburger Menu
@@ -51,7 +51,7 @@ ManaProbe is a mobile-friendly, multi-page marketing website built to showcase a
 
 ### Requirement 4: Home Page Content
 
-**User Story:** As a visitor, I want an engaging home page so that I understand what ManaProbe is and how to download it.
+**User Story:** As a visitor, I want an engaging home page so that I understand what Manaprobe is and how to download it.
 
 #### Acceptance Criteria
 
@@ -70,16 +70,16 @@ ManaProbe is a mobile-friendly, multi-page marketing website built to showcase a
 
 ### Requirement 6: About Page
 
-**User Story:** As a visitor, I want an about page so that I can learn about the team or story behind ManaProbe.
+**User Story:** As a visitor, I want an about page so that I can learn about the team or story behind Manaprobe.
 
 #### Acceptance Criteria
 
-1. THE About page SHALL display information about the ManaProbe app or its creators.
+1. THE About page SHALL display information about the Manaprobe app or its creators.
 2. THE About page SHALL include at least one section of descriptive text content.
 
 ### Requirement 7: Contact Page
 
-**User Story:** As a visitor, I want a contact page so that I can reach out to the ManaProbe team.
+**User Story:** As a visitor, I want a contact page so that I can reach out to the Manaprobe team.
 
 #### Acceptance Criteria
 
@@ -98,12 +98,12 @@ ManaProbe is a mobile-friendly, multi-page marketing website built to showcase a
 
 ### Requirement 9: Visual Theme and Branding
 
-**User Story:** As a visitor, I want a cohesive visual design so that the site feels professional and consistent with the ManaProbe brand.
+**User Story:** As a visitor, I want a cohesive visual design so that the site feels professional and consistent with the Manaprobe brand.
 
 #### Acceptance Criteria
 
-1. THE Website SHALL use a custom color Theme derived from the ManaProbe logo assets in images_new/.
-2. THE Website SHALL display the ManaProbe logo in the Navigation_Bar on all pages.
+1. THE Website SHALL use a custom color Theme derived from the Manaprobe logo assets in images_new/.
+2. THE Website SHALL display the Manaprobe logo in the Navigation_Bar on all pages.
 3. THE Website SHALL apply consistent typography, spacing, and color usage across all pages using Tailwind CSS utility classes.
 4. THE Website SHALL include appropriate favicon and meta tags using the assets from images_new/favicon_io/.
 

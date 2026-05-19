@@ -1,5 +1,5 @@
 [Unit]
-Description=ManaProbe-react systemd service
+Description=Manaprobe-react systemd service
 After=network-online.target
 
 [Service]

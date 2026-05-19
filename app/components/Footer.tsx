@@ -20,7 +20,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="text-center md:text-left">
           <p className="text-sm text-brand-light/80">
-            &copy; {new Date().getFullYear()} ManaProbe. All rights reserved.
+            &copy; {new Date().getFullYear()} Manaprobe. All rights reserved.
           </p>
         </div>
 

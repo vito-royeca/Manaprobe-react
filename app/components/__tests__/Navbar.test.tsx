@@ -55,7 +55,7 @@ describe("Navbar", () => {
     it("renders the logo image with correct alt text", () => {
       renderNavbar();
 
-      const logo = screen.getByAltText("ManaProbe logo");
+      const logo = screen.getByAltText("Manaprobe logo");
       expect(logo).toBeInTheDocument();
       expect(logo.tagName).toBe("IMG");
     });
@@ -63,7 +63,7 @@ describe("Navbar", () => {
     it("logo links to home page '/'", () => {
       renderNavbar();
 
-      const logo = screen.getByAltText("ManaProbe logo");
+      const logo = screen.getByAltText("Manaprobe logo");
       const logoLink = logo.closest("a");
       expect(logoLink).toHaveAttribute("href", "/");
     });

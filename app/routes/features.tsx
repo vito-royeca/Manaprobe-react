@@ -3,11 +3,11 @@ import { FEATURES } from "../data/features";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Features - ManaProbe" },
+    { title: "Features - Manaprobe" },
     {
       name: "description",
       content:
-        "Explore ManaProbe's features: life tracking, multiplayer support, commander damage, dice roller, and more.",
+        "Explore Manaprobe's features: life tracking, multiplayer support, commander damage, dice roller, and more.",
     },
   ];
 }

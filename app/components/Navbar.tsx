@@ -61,13 +61,13 @@ export default function Navbar() {
         <NavLink to="/" className="flex items-center gap-2 shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2">
           <img
             src="/manaprobe-logo.png"
-            alt="ManaProbe logo"
+            alt="Manaprobe logo"
             width={40}
             height={40}
             className="w-10 h-10 rounded"
           />
           <span className="text-lg font-bold text-brand-dark hidden sm:inline">
-            ManaProbe
+            Manaprobe
           </span>
         </NavLink>
 

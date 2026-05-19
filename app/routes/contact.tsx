@@ -3,10 +3,10 @@ import type { Route } from "./+types/contact";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Contact Us - ManaProbe" },
+    { title: "Contact Us - Manaprobe" },
     {
       name: "description",
-      content: "Get in touch with the ManaProbe team.",
+      content: "Get in touch with the Manaprobe team.",
     },
   ];
 }

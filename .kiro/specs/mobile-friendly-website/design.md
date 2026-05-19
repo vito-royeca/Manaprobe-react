@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the technical architecture for transforming the ManaProbe React application from a single-page placeholder into a multi-page, mobile-friendly marketing website. The design leverages the existing React Router v7, Tailwind CSS v4, and Vite 8 stack, adding page routes, a responsive navigation system with hamburger menu, and branded page content.
+This document describes the technical architecture for transforming the Manaprobe React application from a single-page placeholder into a multi-page, mobile-friendly marketing website. The design leverages the existing React Router v7, Tailwind CSS v4, and Vite 8 stack, adding page routes, a responsive navigation system with hamburger menu, and branded page content.
 
 ## Architecture
 
@@ -51,7 +51,7 @@ Client-side navigation is handled by React Router's `<Link>` and `<NavLink>` com
 The primary navigation component rendered in `root.tsx` above the `<Outlet />`.
 
 **Responsibilities:**
-- Display ManaProbe logo linking to home
+- Display Manaprobe logo linking to home
 - Render desktop navigation links (viewport >= 768px)
 - Render hamburger button and mobile menu panel (viewport < 768px)
 - Highlight the active route link
@@ -120,7 +120,7 @@ Each page is a route module exporting a default component and a `meta` function:
 - Grid adapts: 1 column on mobile, 2 on tablet, 3 on desktop
 
 #### About Page (`app/routes/about.tsx`)
-- Descriptive text about ManaProbe and its creators
+- Descriptive text about Manaprobe and its creators
 - At least one content section with heading and paragraph text
 
 #### Contact Page (`app/routes/contact.tsx`)
@@ -211,7 +211,7 @@ function validateContactForm(data: ContactFormData): ContactFormErrors {
 
 ### Color Theme
 
-Custom theme colors derived from the ManaProbe logo (purple/blue tones) defined in `app/app.css`:
+Custom theme colors derived from the Manaprobe logo (purple/blue tones) defined in `app/app.css`:
 
 ```css
 @import "tailwindcss";
@@ -220,7 +220,7 @@ Custom theme colors derived from the ManaProbe logo (purple/blue tones) defined 
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  /* ManaProbe brand colors derived from logo */
+  /* Manaprobe brand colors derived from logo */
   --color-brand-primary: #6C3FA0;
   --color-brand-secondary: #4A90D9;
   --color-brand-accent: #8B5CF6;
@@ -371,7 +371,7 @@ Images use responsive `<img>` elements with:
 
 ### Property 9: Logo presence across all pages
 
-*For any* defined page route in the application, the navigation bar shall contain the ManaProbe logo image element that links to the Home page.
+*For any* defined page route in the application, the navigation bar shall contain the Manaprobe logo image element that links to the Home page.
 
 **Validates: Requirements 9.2**
 

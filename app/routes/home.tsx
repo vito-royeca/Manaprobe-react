@@ -2,7 +2,7 @@ import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "ManaProbe - MTG Life Counter & Game Tracker" },
+    { title: "Manaprobe - MTG Life Counter & Game Tracker" },
     {
       name: "description",
       content:
@@ -16,7 +16,7 @@ function HeroSection() {
     <section className="bg-gradient-to-br from-brand-dark via-brand-primary to-brand-secondary py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-center">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-on-brand mb-6">
-          ManaProbe
+          Manaprobe
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-brand-light/90 mb-8 max-w-2xl mx-auto">
           The ultimate life counter and game state tracker for Magic: The
@@ -69,7 +69,7 @@ function ScreenshotSection() {
           <div className="flex justify-center">
             <img
               src="/screenshot-1.png"
-              alt="ManaProbe app showing life counter interface with player scores"
+              alt="Manaprobe app showing life counter interface with player scores"
               width={390}
               height={844}
               loading="lazy"
@@ -79,7 +79,7 @@ function ScreenshotSection() {
           <div className="flex justify-center">
             <img
               src="/screenshot-2.png"
-              alt="ManaProbe app showing game state tracking with multiple players"
+              alt="Manaprobe app showing game state tracking with multiple players"
               width={390}
               height={844}
               loading="lazy"
@@ -184,7 +184,7 @@ function FeaturesHighlight() {
     <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark text-center mb-4">
-          Why ManaProbe?
+          Why Manaprobe?
         </h2>
         <p className="text-sm md:text-base lg:text-lg text-text-secondary text-center mb-12 max-w-2xl mx-auto">
           Everything you need to keep your Magic games running smoothly.

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Transform the ManaProbe React application from a single-page placeholder into a multi-page, mobile-friendly marketing website. Implementation uses the existing React Router v7, Tailwind CSS v4, and Vite 8 stack, adding page routes, a responsive navigation system with hamburger menu, branded theme, and page content for Home, Features, About, and Contact pages.
+Transform the Manaprobe React application from a single-page placeholder into a multi-page, mobile-friendly marketing website. Implementation uses the existing React Router v7, Tailwind CSS v4, and Vite 8 stack, adding page routes, a responsive navigation system with hamburger menu, branded theme, and page content for Home, Features, About, and Contact pages.
 
 ## Tasks
 
@@ -26,7 +26,7 @@ Transform the ManaProbe React application from a single-page placeholder into a 
 - [x] 2. Implement navigation components
   - [x] 2.1 Create Navbar component with desktop navigation
     - Create `app/components/Navbar.tsx`
-    - Display ManaProbe logo (from images_new/) linking to `/`
+    - Display Manaprobe logo (from images_new/) linking to `/`
     - Render horizontal `NavLink` items for Home, Features, About, Contact
     - Use `NavLink` className callback to style active link differently
     - Use semantic `<header>` and `<nav>` elements with `role="navigation"`
@@ -85,7 +85,7 @@ Transform the ManaProbe React application from a single-page placeholder into a 
 
   - [x] 4.3 Implement About page
     - Create `app/routes/about.tsx`
-    - Display information about ManaProbe app and its creators
+    - Display information about Manaprobe app and its creators
     - Include at least one section with heading and descriptive paragraph text
     - Export `meta` function for page title
     - _Requirements: 6.1, 6.2_

@@ -46,7 +46,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="ManaProbe - Track and manage your Magic: The Gathering life totals and game state with ease." />
+        <meta name="description" content="Manaprobe - Track and manage your Magic: The Gathering life totals and game state with ease." />
         <meta name="theme-color" content="#6C3FA0" />
         <Meta />
         <Links />

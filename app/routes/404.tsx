@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export function meta() {
   return [
-    { title: "Page Not Found - ManaProbe" },
+    { title: "Page Not Found - Manaprobe" },
   ];
 }
 
