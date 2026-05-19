@@ -60,15 +60,11 @@ export default function Navbar() {
         {/* Logo */}
         <NavLink to="/" className="flex items-center gap-2 shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2">
           <img
-            src="/manaprobe-logo.png"
+            src="/logo words - light.png"
             alt="Manaprobe logo"
-            width={40}
-            height={40}
-            className="w-10 h-10 rounded"
+            width={256}
+            height={64}
           />
-          <span className="text-lg font-bold text-brand-dark hidden sm:inline">
-            Manaprobe
-          </span>
         </NavLink>
 
         {/* Desktop navigation links - visible at md breakpoint and above */}

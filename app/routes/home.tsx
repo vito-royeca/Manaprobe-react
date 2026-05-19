@@ -2,11 +2,11 @@ import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Manaprobe - MTG Life Counter & Game Tracker" },
+    { title: "Manaprobe - A database of Magic: The Gathering Cards" },
     {
       name: "description",
       content:
-        "Track and manage your Magic: The Gathering life totals and game state with ease.",
+        "Track and manage your Magic: The Gathering cards, collections, and decks.",
     },
   ];
 }
