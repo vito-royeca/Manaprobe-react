@@ -6,6 +6,7 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "export HTTPS=true&&SSL_CRT_FILE=./ssl/__manaprobe_com.crt&&SSL_KEY_FILE=./ssl/manaprobe_com.key react-router-serve ./build/server/index.js",
+    "test": "vitest --run",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
@@ -22,14 +23,20 @@
   "devDependencies": {
     "@react-router/dev": "7.15.0",
     "@tailwindcss/vite": "^4.2.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^22",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "babel-plugin-react-compiler": "^1.0.0",
     "eslint-plugin-react-hooks": "^7.1.1",
+    "fast-check": "^4.8.0",
+    "jsdom": "^29.1.1",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
-    "vite": "^8.0.3"
+    "vite": "^8.0.3",
+    "vitest": "^4.1.6"
   }
 }
