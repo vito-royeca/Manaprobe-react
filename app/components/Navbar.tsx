@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router";
 import MobileMenuPanel from "./MobileMenuPanel";
 import ThemeToggle from "~/components/ThemeToggle";
+import { getResolvedTheme, onSystemThemeChange } from "~/utils/theme";
+import type { Theme } from "~/utils/theme";
 
 const NAV_ITEMS = [
   { path: "/", label: "Home" },
@@ -62,6 +64,7 @@ export default function Navbar() {
         <NavLink to="/" className="flex items-center gap-2 shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
           <img
             src="/logo words - light.png"
+            className="logo-words"
             alt="Manaprobe logo"
             width={256}
             height={64}
