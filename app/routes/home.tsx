@@ -13,12 +13,12 @@ export function meta({}: Route.MetaArgs) {
 
 function HeroSection() {
   return (
-    <section className="bg-gradient-to-br from-brand-dark via-brand-primary to-brand-secondary py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-center">
+    <section className="bg-surface-dark py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-center">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-on-brand mb-6">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-on-dark mb-6">
           Manaprobe
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-brand-light/90 mb-8 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-text-on-dark/80 mb-8 max-w-2xl mx-auto">
           The ultimate life counter and game state tracker for Magic: The
           Gathering. Keep track of life totals, commander damage, and more —
           all from your phone.
@@ -26,7 +26,7 @@ function HeroSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#"
-            className="inline-flex items-center gap-2 bg-text-on-brand text-brand-primary font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-brand-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2"
+            className="inline-flex items-center gap-2 bg-text-on-dark text-surface-dark font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-text-on-dark/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark"
           >
             <svg
               className="w-5 h-5"
@@ -40,7 +40,7 @@ function HeroSection() {
           </a>
           <a
             href="#"
-            className="inline-flex items-center gap-2 border-2 border-text-on-brand text-text-on-brand font-semibold px-6 py-3 rounded-lg hover:bg-text-on-brand/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2"
+            className="inline-flex items-center gap-2 border-2 border-text-on-dark text-text-on-dark font-semibold px-6 py-3 rounded-lg hover:bg-text-on-dark/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark"
           >
             <svg
               className="w-5 h-5"
@@ -60,9 +60,9 @@ function HeroSection() {
 
 function ScreenshotSection() {
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-brand-light">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-surface-alt">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark text-center mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary text-center mb-12">
           See It in Action
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
@@ -100,7 +100,7 @@ function FeaturesHighlight() {
         "Quickly adjust life totals with intuitive tap controls. Supports starting life totals for any format.",
       icon: (
         <svg
-          className="w-8 h-8 text-brand-accent"
+          className="w-8 h-8 text-accent"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
@@ -121,7 +121,7 @@ function FeaturesHighlight() {
         "Track commander damage, poison counters, energy, and more. Never lose track of complex board states.",
       icon: (
         <svg
-          className="w-8 h-8 text-brand-accent"
+          className="w-8 h-8 text-accent"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
@@ -142,7 +142,7 @@ function FeaturesHighlight() {
         "Support for 2-6 players with customizable layouts. Perfect for Commander, Two-Headed Giant, and more.",
       icon: (
         <svg
-          className="w-8 h-8 text-brand-accent"
+          className="w-8 h-8 text-accent"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
@@ -163,7 +163,7 @@ function FeaturesHighlight() {
         "A beautiful, distraction-free interface that lets you focus on the game. Dark mode included.",
       icon: (
         <svg
-          className="w-8 h-8 text-brand-accent"
+          className="w-8 h-8 text-accent"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
@@ -183,7 +183,7 @@ function FeaturesHighlight() {
   return (
     <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark text-center mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary text-center mb-4">
           Why Manaprobe?
         </h2>
         <p className="text-sm md:text-base lg:text-lg text-text-secondary text-center mb-12 max-w-2xl mx-auto">
@@ -193,10 +193,10 @@ function FeaturesHighlight() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-brand-light rounded-xl p-6 text-center hover:shadow-md transition-shadow"
+              className="bg-surface-alt rounded-xl p-6 text-center hover:shadow-md transition-shadow"
             >
               <div className="flex justify-center mb-4">{feature.icon}</div>
-              <h3 className="text-base md:text-lg font-semibold text-brand-dark mb-2">
+              <h3 className="text-base md:text-lg font-semibold text-text-primary mb-2">
                 {feature.title}
               </h3>
               <p className="text-sm md:text-base text-text-secondary">

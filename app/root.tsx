@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   isRouteErrorResponse,
   Links,
@@ -11,6 +12,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { getResolvedTheme, applyTheme, onSystemThemeChange } from "~/utils/theme";
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -40,13 +42,21 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    const theme = getResolvedTheme();
+    applyTheme(theme);
+
+    const cleanup = onSystemThemeChange((t) => applyTheme(t));
+    return cleanup;
+  }, []);
+
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Manaprobe - Track and manage your Magic: The Gathering life totals and game state with ease." />
-        <meta name="theme-color" content="#6C3FA0" />
+        <meta name="theme-color" content="#FAFAFA" />
         <Meta />
         <Links />
       </head>

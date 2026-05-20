@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router";
 import MobileMenuPanel from "./MobileMenuPanel";
+import ThemeToggle from "~/components/ThemeToggle";
 
 const NAV_ITEMS = [
   { path: "/", label: "Home" },
@@ -51,14 +52,14 @@ export default function Navbar() {
   }, [isMenuOpen]);
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 bg-surface shadow-sm border-b border-brand-light">
+    <header ref={headerRef} className="sticky top-0 z-50 bg-surface shadow-sm border-b border-border">
       <nav
         role="navigation"
         aria-label="Main navigation"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16"
       >
         {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-2 shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2">
+        <NavLink to="/" className="flex items-center gap-2 shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
           <img
             src="/logo words - light.png"
             alt="Manaprobe logo"
@@ -75,10 +76,10 @@ export default function Navbar() {
                 to={item.path}
                 end={item.path === "/"}
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 ${
+                  `px-4 py-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${
                     isActive
-                      ? "bg-brand-accent/10 text-brand-accent"
-                      : "text-text-secondary hover:text-brand-primary hover:bg-brand-light"
+                      ? "bg-accent/10 text-accent"
+                      : "text-text-secondary hover:text-text-primary hover:bg-surface-alt"
                   }`
                 }
               >
@@ -88,10 +89,13 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* Theme toggle - visible on all viewport sizes */}
+        <ThemeToggle />
+
         {/* Hamburger button - visible only below md breakpoint */}
         <button
           type="button"
-          className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-text-secondary hover:text-brand-primary hover:bg-brand-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+          className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-text-secondary hover:text-text-primary hover:bg-surface-alt transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           aria-expanded={isMenuOpen}
           aria-label="Toggle navigation menu"
           aria-controls="mobile-menu-panel"

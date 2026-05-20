@@ -74,23 +74,23 @@ describe("Navbar", () => {
       renderNavbar("/");
 
       const homeLink = screen.getByRole("link", { name: "Home" });
-      expect(homeLink.className).toContain("bg-brand-accent/10");
-      expect(homeLink.className).toContain("text-brand-accent");
+      expect(homeLink.className).toContain("bg-accent/10");
+      expect(homeLink.className).toContain("text-accent");
     });
 
     it("applies active styling to Features link when on '/features' route", () => {
       renderNavbar("/features");
 
       const featuresLink = screen.getByRole("link", { name: "Features" });
-      expect(featuresLink.className).toContain("bg-brand-accent/10");
-      expect(featuresLink.className).toContain("text-brand-accent");
+      expect(featuresLink.className).toContain("bg-accent/10");
+      expect(featuresLink.className).toContain("text-accent");
     });
 
     it("does not apply active styling to Home link when on '/features' route", () => {
       renderNavbar("/features");
 
       const homeLink = screen.getByRole("link", { name: "Home" });
-      expect(homeLink.className).not.toContain("bg-brand-accent/10");
+      expect(homeLink.className).not.toContain("bg-accent/10");
       expect(homeLink.className).toContain("text-text-secondary");
     });
 
@@ -98,16 +98,16 @@ describe("Navbar", () => {
       renderNavbar("/about");
 
       const aboutLink = screen.getByRole("link", { name: "About" });
-      expect(aboutLink.className).toContain("bg-brand-accent/10");
-      expect(aboutLink.className).toContain("text-brand-accent");
+      expect(aboutLink.className).toContain("bg-accent/10");
+      expect(aboutLink.className).toContain("text-accent");
     });
 
     it("applies active styling to Contact link when on '/contact' route", () => {
       renderNavbar("/contact");
 
       const contactLink = screen.getByRole("link", { name: "Contact" });
-      expect(contactLink.className).toContain("bg-brand-accent/10");
-      expect(contactLink.className).toContain("text-brand-accent");
+      expect(contactLink.className).toContain("bg-accent/10");
+      expect(contactLink.className).toContain("text-accent");
     });
   });
 });

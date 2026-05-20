@@ -23,7 +23,7 @@ export default function MobileMenuPanel({
   return (
     <div
       id="mobile-menu-panel"
-      className="md:hidden border-t border-brand-light bg-surface"
+      className="md:hidden border-t border-border bg-surface"
     >
       <ul className="flex flex-col px-4 py-2 gap-1">
         {NAV_ITEMS.map((item) => (
@@ -33,10 +33,10 @@ export default function MobileMenuPanel({
               end={item.path === "/"}
               onClick={onLinkClick}
               className={({ isActive }) =>
-                `block px-4 py-3 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent ${
+                `block px-4 py-3 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   isActive
-                    ? "bg-brand-accent/10 text-brand-accent"
-                    : "text-text-secondary hover:text-brand-primary hover:bg-brand-light"
+                    ? "bg-accent/10 text-accent"
+                    : "text-text-secondary hover:text-text-primary hover:bg-surface-alt"
                 }`
               }
             >
