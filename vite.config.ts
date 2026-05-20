@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     reactRouter(),
-    react(),
+    // react(),
     // babel({
     //   filter: /\.[jt]sx?$/,
     //   babelConfig: {
