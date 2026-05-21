@@ -72,16 +72,17 @@ export default function Contact() {
       return;
     }
 
-    if (Object.keys(validationErrors).length !== 0) {
+    // if (Object.keys(validationErrors).length !== 0) {
       // setSubmitted(true);
       // setFormData({ name: "", email: "", message: "" });
-      return;
-    }
+      // return;
+    // }
 
     // const payload = {
     //   ...formData,
     //   recaptchaToken: captchaValue,
     // };
+    console.log("sendingMail...");
     sendMail();
   }
 
@@ -121,25 +122,8 @@ export default function Contact() {
     setLoaded(true);
   }, []);
 
-  return (
-    <section className="max-w-2xl mx-auto px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark mb-6">
-        Contact Us
-      </h1>
-      <p className="text-sm md:text-base lg:text-lg text-text-secondary mb-8">
-        Have a question, suggestion, or just want to say hello? Fill out the
-        form below and we'll get back to you as soon as possible.
-      </p>
-
-      {submitted && (
-        <div
-          className="mb-6 rounded-lg bg-green-50 border border-green-200 p-4 text-green-800"
-          role="alert"
-        >
-          Thank you for your message! We'll be in touch soon.
-        </div>
-      )}
-
+  const contactForm = () => {
+    return (
       <form onSubmit={handleSubmit} noValidate className="space-y-6">
         {/* Name field */}
         <div>
@@ -226,9 +210,22 @@ export default function Contact() {
         </div>
 
         { loaded && (
-          <ReCAPTCHA 
-            sitekey={VITE_RECAPTCHA_SITE_KEY}
-            onChange={handleCaptchaChange} />
+          <>
+            <ReCAPTCHA 
+              sitekey={VITE_RECAPTCHA_SITE_KEY}
+              onChange={handleCaptchaChange} 
+            />
+            {errors.reCaptcha && (
+              <p
+                id="reCaptcha-error"
+                className="mt-1 text-sm text-red-600"
+                role="alert"
+              >
+                {errors.reCaptcha}
+              </p>
+            )}
+            
+          </>
         )}
 
         {/* Submit button */}
@@ -239,8 +236,11 @@ export default function Contact() {
           Send Message
         </button>
       </form>
+    );
+  };
 
-      {/* Alternative contact method */}
+  const alternativeContact = () => {
+    return (
       <div className="mt-10 border-t border-gray-200 pt-8">
         <p className="text-text-secondary">
           Or email us directly at{" "}
@@ -252,6 +252,32 @@ export default function Contact() {
           </a>
         </p>
       </div>
+    );
+  };
+
+  return (
+    <section className="max-w-2xl mx-auto px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark mb-6">
+        Contact Us
+      </h1>
+
+      {submitted ? (
+        <div
+          className="mb-6 rounded-lg bg-green-50 border border-green-200 p-4 text-green-800"
+          role="alert"
+        >
+          Thank you for your message! We'll be in touch soon.
+        </div>
+      ) : (
+        <>
+          <p className="text-sm md:text-base lg:text-lg text-text-secondary mb-8">
+            Have a question, suggestion, or just want to say hello? Fill out the
+            form below and we'll get back to you as soon as possible.
+          </p>
+          {contactForm()}
+          {alternativeContact()}
+        </>
+      )}
     </section>
   );
 }
