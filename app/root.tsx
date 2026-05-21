@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   isRouteErrorResponse,
   Links,
@@ -12,7 +12,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { getResolvedTheme, applyTheme, onSystemThemeChange } from "~/utils/theme";
+import { getResolvedTheme, applyTheme, onSystemThemeChange, type Theme } from "~/utils/theme";
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -42,11 +42,18 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    const theme = getResolvedTheme();
-    applyTheme(theme);
+  const [theme, setTheme] = useState<Theme>("light");
 
-    const cleanup = onSystemThemeChange((t) => applyTheme(t));
+  useEffect(() => {
+    const t = getResolvedTheme();
+    applyTheme(t);
+    setTheme(t);
+
+    const cleanup = onSystemThemeChange((t) => {
+      applyTheme(t)
+      setTheme(t);
+      console.log("Resolved theme:", t);
+    });
     return cleanup;
   }, []);
 

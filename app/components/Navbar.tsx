@@ -1,8 +1,10 @@
+"use client";
+
 import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router";
 import MobileMenuPanel from "./MobileMenuPanel";
 import ThemeToggle from "~/components/ThemeToggle";
-import { getResolvedTheme, onSystemThemeChange } from "~/utils/theme";
+import { getResolvedTheme } from "~/utils/theme";
 import type { Theme } from "~/utils/theme";
 
 const NAV_ITEMS = [
@@ -11,6 +13,48 @@ const NAV_ITEMS = [
   { path: "/about", label: "About" },
   { path: "/contact", label: "Contact" },
 ] as const;
+
+function LogoIcon() {
+  const [theme, setTheme] = useState<Theme>("light");
+  const [loaded, setLoaded] = useState(false);
+
+  // Initialize theme state from resolved theme (SSR-safe)
+  useEffect(() => {
+    setTheme(getResolvedTheme());
+    setLoaded(true);
+  }, []);
+
+  const isDark = theme === "dark";
+
+  return (
+    <NavLink
+      to="/"
+      className="flex items-center gap-2 shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
+      {loaded ? (
+        <img
+          src={isDark
+            ? "/logo_words-dark.png"
+            : "/logo_words-light.png"
+          }
+          alt="Manaprobe logo"
+          width={256}
+          height={64}
+        />
+      ) : (
+        <picture>
+          <source srcSet="/logo_words-dark.png" media="(prefers-color-scheme: dark)" />
+          <source srcSet="/logo_words-light.png" media="(prefers-color-scheme: light)" />
+          <img
+            src="/logo_words-light.png"
+            alt="Manaprobe logo"
+            width={256}
+            height={64}
+          />
+        </picture>
+      )}
+    </NavLink>
+  );
+}
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,16 +104,7 @@ export default function Navbar() {
         aria-label="Main navigation"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16"
       >
-        {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-2 shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
-          <img
-            src="/logo words - light.png"
-            className="logo-words"
-            alt="Manaprobe logo"
-            width={256}
-            height={64}
-          />
-        </NavLink>
+        <LogoIcon />
 
         {/* Desktop navigation links - visible at md breakpoint and above */}
         <ul className="hidden md:flex items-center gap-1">
