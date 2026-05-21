@@ -110,6 +110,7 @@ export default function Contact() {
       );
       console.log('SUCCESS!');
       setSubmitted(true);
+      setSuccess("Your message has been sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.log('FAILED...', error);
@@ -223,12 +224,12 @@ export default function Contact() {
             </p>
           )}
         </div>
+
         { loaded && (
           <ReCAPTCHA 
             sitekey={VITE_RECAPTCHA_SITE_KEY}
             onChange={handleCaptchaChange} />
         )}
-        {VITE_RECAPTCHA_SITE_KEY}
 
         {/* Submit button */}
         <button

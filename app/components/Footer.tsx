@@ -8,9 +8,9 @@ const NAV_LINKS = [
 ] as const;
 
 const SOCIAL_LINKS = [
-  { href: "https://twitter.com/manaprobe", label: "Twitter" },
-  { href: "https://github.com/manaprobe", label: "GitHub" },
-  { href: "mailto:contact@manaprobe.com", label: "Email" },
+  // { href: "https://twitter.com/manaprobe", label: "Twitter" },
+  // { href: "https://github.com/manaprobe", label: "GitHub" },
+  { href: "mailto:hello@manaprobe.com", label: "Email" },
 ] as const;
 
 export default function Footer() {
@@ -56,6 +56,28 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+      {/* <div className="max-w-7xl mx-auto md:justify-between md:items-start mt-10">
+       */}
+      <div className="max-w-7xl mx-auto flex flex-col items-center gap-6 md:flex-row md:justify-between md:items-start">
+        <div className="max-w-7xl mx-auto md:justify-between md:items-start mt-10">
+          <p className="text-sm text-text-on-dark/80 text-center">
+            This website and related apps contain data that is Copyright © Wizards of the Coast - All Rights Reserved
+          </p>
+          <p className="text-sm text-text-on-dark/80 text-center">
+            This website is not affiliated with Wizards of the Coast in any way.
+          </p>
+          <p className="text-sm text-text-on-dark/80 text-center">
+            Made with ❤️ by &nbsp;
+              <a 
+                href="https://vitoroyeca.me"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-primary hover:text-brand-accent underline font-medium rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2">
+                Vito Royeca
+              </a>
+          </p>
         </div>
       </div>
     </footer>
