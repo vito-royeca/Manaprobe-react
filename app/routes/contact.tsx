@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState, type SetStateAction } from "react";
+import emailjs from '@emailjs/browser';
+import ReCAPTCHA from "react-google-recaptcha";
+
 import type { Route } from "./+types/contact";
 
 export function meta({}: Route.MetaArgs) {
@@ -21,7 +24,13 @@ export interface ContactFormErrors {
   name?: string;
   email?: string;
   message?: string;
+  reCaptcha?: string;
 }
+
+const VITE_EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const VITE_EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const VITE_EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const VITE_RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 export function validateContactForm(data: ContactFormData): ContactFormErrors {
   const errors: ContactFormErrors = {};
@@ -29,7 +38,7 @@ export function validateContactForm(data: ContactFormData): ContactFormErrors {
   if (!data.email.trim()) errors.email = "Email is required";
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))
     errors.email = "Invalid email format";
-  if (!data.message.trim()) errors.message = "Message is required";
+  if (!data.message.trim()) errors.message = "Message is required";  
   return errors;
 }
 
@@ -41,6 +50,10 @@ export default function Contact() {
   });
   const [errors, setErrors] = useState<ContactFormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [captchaValue, setCaptchaValue] = useState(null);
+  const [success, setSuccess] = useState("");
+  const [loaded, setLoaded] = useState(false);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -54,11 +67,55 @@ export default function Contact() {
     const validationErrors = validateContactForm(formData);
     setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length === 0) {
-      setSubmitted(true);
-      setFormData({ name: "", email: "", message: "" });
+    if (!captchaValue) {
+      setErrors({ ...validationErrors, reCaptcha: "Please complete the reCAPTCHA" });
+      return;
     }
+
+    if (Object.keys(validationErrors).length !== 0) {
+      // setSubmitted(true);
+      // setFormData({ name: "", email: "", message: "" });
+      return;
+    }
+
+    const payload = {
+      ...formData,
+      recaptchaToken: captchaValue,
+    };
   }
+
+  const handleCaptchaChange = (value: SetStateAction<null>) => {
+    setCaptchaValue(value);
+    setErrors((prev) => ({ ...prev, reCaptcha: undefined }));
+  };
+
+  const sendMail = async () => {
+    if (!formRef.current) return;
+    if (VITE_EMAILJS_SERVICE_ID === undefined
+        || VITE_EMAILJS_TEMPLATE_ID === undefined
+        || VITE_EMAILJS_PUBLIC_KEY === undefined) {
+      console.error("EmailJS environment variables are not set.");
+      return;
+    }
+
+    try {
+      await emailjs.sendForm(
+        VITE_EMAILJS_SERVICE_ID,
+        VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        {
+          publicKey: VITE_EMAILJS_PUBLIC_KEY,
+        }
+      );
+      console.log('SUCCESS!');
+    } catch (error) {
+      console.log('FAILED...', error);
+    }
+  };
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
 
   return (
     <section className="max-w-2xl mx-auto px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
@@ -163,6 +220,11 @@ export default function Contact() {
             </p>
           )}
         </div>
+        { loaded && (
+          <ReCAPTCHA 
+            sitekey={VITE_RECAPTCHA_SITE_KEY}
+            onChange={handleCaptchaChange} />
+        )}
 
         {/* Submit button */}
         <button
@@ -178,10 +240,10 @@ export default function Contact() {
         <p className="text-text-secondary">
           Or email us directly at{" "}
           <a
-            href="mailto:contact@manaprobe.com"
+            href="mailto:hello@manaprobe.com"
             className="text-brand-primary hover:text-brand-accent underline font-medium rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2"
           >
-            contact@manaprobe.com
+            hello@manaprobe.com
           </a>
         </p>
       </div>
