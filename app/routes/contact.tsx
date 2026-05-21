@@ -78,10 +78,11 @@ export default function Contact() {
       return;
     }
 
-    const payload = {
-      ...formData,
-      recaptchaToken: captchaValue,
-    };
+    // const payload = {
+    //   ...formData,
+    //   recaptchaToken: captchaValue,
+    // };
+    sendMail();
   }
 
   const handleCaptchaChange = (value: SetStateAction<null>) => {
@@ -108,6 +109,8 @@ export default function Contact() {
         }
       );
       console.log('SUCCESS!');
+      setSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.log('FAILED...', error);
     }
@@ -225,6 +228,7 @@ export default function Contact() {
             sitekey={VITE_RECAPTCHA_SITE_KEY}
             onChange={handleCaptchaChange} />
         )}
+        {VITE_RECAPTCHA_SITE_KEY}
 
         {/* Submit button */}
         <button
