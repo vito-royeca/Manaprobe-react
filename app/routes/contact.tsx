@@ -124,7 +124,10 @@ export default function Contact() {
 
   const contactForm = () => {
     return (
-      <form onSubmit={handleSubmit} noValidate className="space-y-6">
+      <form ref={formRef}
+        onSubmit={handleSubmit}
+        noValidate
+        className="space-y-6">
         {/* Name field */}
         <div>
           <label
