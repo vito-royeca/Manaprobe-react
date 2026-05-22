@@ -5,17 +5,21 @@
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
+    "generate": "graphql-codegen",
     "start": "export HTTPS=true&&SSL_CRT_FILE=./ssl/__manaprobe_com.crt&&SSL_KEY_FILE=./ssl/manaprobe_com.key react-router-serve ./build/server/index.js",
     "test": "vitest --run",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@apollo/client": "^4.2.0",
+    "@apollo/client-integration-react-router": "^0.14.5-alpha.0",
     "@emailjs/browser": "^4.4.1",
     "@react-router/node": "7.15.0",
     "@react-router/serve": "7.15.0",
     "dotenv": "^17.4.2",
     "eslint-config-react-app": "^7.0.1",
     "firebase": "^12.13.0",
+    "graphql": "^16.14.0",
     "isbot": "^5.1.36",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
@@ -24,6 +28,9 @@
     "vite-plugin-babel": "^1.6.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^7.0.0",
+    "@graphql-codegen/typescript": "^6.0.1",
+    "@graphql-codegen/typescript-operations": "^6.0.2",
     "@react-router/dev": "7.15.0",
     "@tailwindcss/vite": "^4.2.2",
     "@testing-library/jest-dom": "^6.9.1",
