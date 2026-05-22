@@ -1,12 +1,11 @@
 import { gql, type TypedDocumentNode } from "@apollo/client/core/index.js";
-import { useEffect, useState } from "react";
-
 import { apolloLoader } from "~/utils/apollo";
-import type { Route } from "./+types";
 import { useReadQuery } from "@apollo/client/react/compiled";
 import { useLoaderData } from "react-router";
 
-import { FRAGMENTS } from "../../utils/Fragments";
+import type { Route } from "./+types";
+import { FRAGMENTS } from "~/utils/Fragments";
+import SetsListPage from "./components/SetsList";
 
 const GET_SETS: TypedDocumentNode<
   { setsByYear: { sectionedSets: {
@@ -44,16 +43,7 @@ function SetsPage() {
             <h2 className="text-2xl font-semibold mb-2">
                 {sectionedSet.section}
             </h2>
-            <ul className="list-disc list-inside">
-                {sectionedSet.sets.map((set: any) => (
-                    <li
-                        key={set.id}
-                        className="text-lg text-blue-600 hover:underline"
-                    >
-                        {set.name}
-                    </li>
-                ))}
-            </ul>
+            <SetsListPage sets={sectionedSet.sets} />
         </div>
       ))}
     </div>
