@@ -4,14 +4,11 @@ import { useReadQuery } from "@apollo/client/react/compiled";
 import { useLoaderData } from "react-router";
 
 import type { Route } from "./+types";
-import { FRAGMENTS } from "~/utils/Fragments";
+import { FRAGMENTS } from "~/utils/fragments";
 import SetsListPage from "./components/SetsList";
+import type { MGSectionedSets, MGSet } from "~/types";
 
-const GET_SETS: TypedDocumentNode<
-  { setsByYear: { sectionedSets: {
-      [x: string]: any; section: number, sets: [{ id: string; name: string; }] 
-} } }
-> = gql`
+const GET_SETS: TypedDocumentNode<MGSectionedSets> = gql`
   query SetsByYear {
     setsByYear {
       ...SectionedSets
@@ -30,22 +27,18 @@ export const loader = apolloLoader<Route.LoaderArgs>()(({ preloadQuery }) => {
 function SetsPage() {
   const { setsQueryRef } = useLoaderData<typeof loader>();
   const { data } = useReadQuery(setsQueryRef);
+  let sets: MGSet[] = [];
+
+  if (data !== undefined) {
+    for (const sectionedSet of data.setsByYear.sectionedSets) {
+      sets.push(...sectionedSet.sets);
+    }
+  }
 
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Sets</h1>
-      <p className="text-lg text-gray-700">
-        Explore the various sets of Magic: The Gathering, including their release dates, themes, and card lists.
-      </p>
-        
-      {data.setsByYear.sectionedSets.map((sectionedSet: any) => (
-        <div key={sectionedSet.section} className="mt-8">
-            <h2 className="text-2xl font-semibold mb-2">
-                {sectionedSet.section}
-            </h2>
-            <SetsListPage sets={sectionedSet.sets} />
-        </div>
-      ))}
+      <SetsListPage sets={sets} />
     </div>
   );
 }
