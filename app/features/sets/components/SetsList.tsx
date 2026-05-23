@@ -17,8 +17,8 @@ interface Column {
 }
 
 const columns: readonly Column[] = [
-  { id: 'smallLogoURL', label: '', minWidth: 100, align: 'center' },
-  { id: 'keyruneCode', label: '', minWidth: 10, align: 'center' },
+  { id: 'smallLogoURL', label: 'Logo', minWidth: 100, align: 'center' },
+  { id: 'keyruneCode', label: 'Icon', minWidth: 10, align: 'center' },
   { id: 'id', label: 'Code', minWidth: 10, align: 'left' },
   { id: 'name', label: 'Name', minWidth: 250, align: 'left' },
   { id: 'type', label: 'Type', minWidth: 50, align: 'left' },
