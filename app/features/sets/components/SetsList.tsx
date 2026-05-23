@@ -9,16 +9,22 @@ import Paper from '@mui/material/Paper';
 import type { MGSet } from '~/types';
 
 interface Column {
-  id: 'id' | 'name';
+  id: 'smallLogoURL' | 'keyruneCode' | 'id' | 'type' | 'cards' | 'releaseDate' | 'name';
   label: string;
   minWidth?: number;
-  align?: 'right';
+  align?: 'right' | 'left' | 'center';
   format?: (value: number) => string;
 }
 
 const columns: readonly Column[] = [
-  { id: 'id', label: 'Code', minWidth: 50 },
-  { id: 'name', label: 'Name', minWidth: 100 },
+  { id: 'smallLogoURL', label: '', minWidth: 100, align: 'center' },
+  { id: 'keyruneCode', label: '', minWidth: 10, align: 'center' },
+  { id: 'id', label: 'Code', minWidth: 10, align: 'left' },
+  { id: 'name', label: 'Name', minWidth: 250, align: 'left' },
+  { id: 'type', label: 'Type', minWidth: 50, align: 'left' },
+  { id: 'cards', label: 'Cards', minWidth: 10, align: 'right' },
+  { id: 'releaseDate', label: 'Release Date', minWidth: 20, align: 'right' },
+  
 ];
 
 
@@ -49,25 +55,50 @@ export default function SetsListPage({ sets }: SetsListPageProps) {
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              {columns.map((column) => {
-                let value = '';
-                if (column.id === 'id') {
-                  value = set.id;
-                } else if (column.id === 'name') {
-                  value = set.name;
-                }
-                return (
-                  <TableCell key={column.id} align={column.align}>
-                    {value}
-                  </TableCell>
-                );
-              })}
+              <TableCell 
+                align='center'
+                style={{ minWidth: 100 }}>
+                <img
+                  src={set.smallLogoURL || ''}
+                  alt={`${set.id} logo`}
+                  loading="lazy"
+                  width={100}
+                />
+              </TableCell>
+              <TableCell 
+                align='center'
+                style={{ minWidth: 10 }}>
+                <i className={`ss ss-${set.keyruneClass ?? ''} ss-2x`} />
+              </TableCell>
+              <TableCell 
+                align='left'
+                style={{ minWidth: 10 }}>
+                {set.id}
+              </TableCell>
+              <TableCell 
+                align='left'
+                style={{ minWidth: 250 }}>
+                {set.name}
+              </TableCell>
+              <TableCell 
+                align='left'
+                style={{ minWidth: 50 }}>
+                {set.setType?.name ?? 'N/A'}
+              </TableCell>
+              <TableCell 
+                align='right'
+                style={{ minWidth: 10 }}>
+                {set.cardCount ?? 'N/A'}
+              </TableCell>
+              <TableCell 
+                align='right'
+                style={{ minWidth: 20 }}>
+                {set.releaseDate}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-    
-    
   );
 }

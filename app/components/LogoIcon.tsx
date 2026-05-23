@@ -21,8 +21,8 @@ export default function LogoIcon() {
       {loaded ? (
         <img
           src={isDark
-            ? "/logo_words-dark.png"
-            : "/logo_words-light.png"
+            ? "/images/logo_words-dark.png"
+            : "/images/logo_words-light.png"
           }
           alt="Manaprobe logo"
           width={256}
@@ -30,10 +30,10 @@ export default function LogoIcon() {
         />
       ) : (
         <picture>
-          <source srcSet="/logo_words-dark.png" media="(prefers-color-scheme: dark)" />
-          <source srcSet="/logo_words-light.png" media="(prefers-color-scheme: light)" />
+          <source srcSet="/images/logo_words-dark.png" media="(prefers-color-scheme: dark)" />
+          <source srcSet="/images/logo_words-light.png" media="(prefers-color-scheme: light)" />
           <img
-            src="/logo_words-light.png"
+            src="/images/logo_words-light.png"
             alt="Manaprobe logo"
             width={256}
             height={64}

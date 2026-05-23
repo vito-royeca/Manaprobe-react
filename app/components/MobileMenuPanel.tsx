@@ -1,11 +1,6 @@
 import { NavLink } from "react-router";
 
-const NAV_ITEMS = [
-  { path: "/", label: "Home" },
-  { path: "/features", label: "Features" },
-  { path: "/about", label: "About" },
-  { path: "/contact", label: "Contact" },
-] as const;
+import { NAV_LINKS } from "./Links";
 
 interface MobileMenuPanelProps {
   isOpen: boolean;
@@ -26,7 +21,7 @@ export default function MobileMenuPanel({
       className="md:hidden border-t border-border bg-surface"
     >
       <ul className="flex flex-col px-4 py-2 gap-1">
-        {NAV_ITEMS.map((item) => (
+        {NAV_LINKS.map((item) => (
           <li key={item.path}>
             <NavLink
               to={item.path}

@@ -75,7 +75,7 @@ function ScreenshotSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
           <div className="flex justify-center">
             <img
-              src="/screenshot-1.png"
+              src="/images/screenshot-1.png"
               alt="Manaprobe app showing life counter interface with player scores"
               width={390}
               height={844}
@@ -85,7 +85,7 @@ function ScreenshotSection() {
           </div>
           <div className="flex justify-center">
             <img
-              src="/screenshot-2.png"
+              src="/images/screenshot-2.png"
               alt="Manaprobe app showing game state tracking with multiple players"
               width={390}
               height={844}
