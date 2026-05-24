@@ -1,16 +1,18 @@
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow
+ } from '@mui/material';
 
 import type { MGSet } from '~/types';
 import SetsListRow from './SetsListRow';
 
 interface Column {
-  id: 'smallLogoURL' | 'keyruneCode' | 'cards' | 'releaseDate' | 'name';
+  id: 'smallLogoURL' | 'keyruneCode' | 'name' | 'cards' | 'releaseDate';
   label: string;
   minWidth?: number;
   align?: 'right' | 'left' | 'center';
@@ -50,8 +52,7 @@ export default function SetsListPage({ sets }: SetsListPageProps) {
           {sets.map((set, index) => (
             <SetsListRow
               key={index}
-              set={set}
-              index={index} />
+              set={set} />
           ))}
         </TableBody>
       </Table>

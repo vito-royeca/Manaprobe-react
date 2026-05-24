@@ -1,8 +1,10 @@
 import { useQuery } from "@apollo/client/react";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
-import Box from "@mui/material/Box";
-import CircularProgress from "@mui/material/CircularProgress";
+import { 
+  Alert,
+  AlertTitle,
+  Box,
+  CircularProgress 
+} from "@mui/material";
 import { useParams } from "react-router";
 
 import { GET_SET } from "./query";
@@ -36,14 +38,15 @@ const SetPage = () => {
   );
    
   return (
-    <>
+    <div>
       {data && (
-        <SetHeader set={data.set} />
+        <SetHeader set={data.set}/>
       )}
+      <div  className="mb-4" />
       {data?.set?.cards && (
         <SetCardsList cards={data.set.cards} />
       )}
-    </>
+    </div>
   );
 }
  

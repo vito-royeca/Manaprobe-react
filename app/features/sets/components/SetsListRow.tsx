@@ -4,16 +4,13 @@ import type { MGSet } from '~/types';
 
 interface SetsListRowProps {
   set: MGSet;
-  index: number;
 }
 
 const SetsListRow = ({
-  set,
-  index
+  set
 }: SetsListRowProps) => {
   return ( 
     <TableRow
-      key={index}
       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
     >
       <TableCell 

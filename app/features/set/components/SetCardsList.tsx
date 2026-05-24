@@ -1,5 +1,8 @@
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+import {
+  ImageList,
+  ImageListItem,
+  Paper
+} from "@mui/material";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 import { cssClassForCard, localImageURL } from "~/utils/localImage";
@@ -29,20 +32,30 @@ const SetCardsList = ({ cards }: SetCardsListProps) => {
   };
 
   return ( 
-    <ImageList sx={{ width: '100%', height: 'auto' }} gap={10} cols={getCols()}>
+    
+    <ImageList sx={{ width: '100%', height: 'auto' }} gap={20} cols={getCols()}>
       {cards.map((card) => (
+        <Paper>
         <ImageListItem key={card.id}>
           <img
             srcSet={localImageURL(card, 'normal')}
             src={localImageURL(card, 'normal')}
-            alt={card.name ?? ''}
+            alt={card.displayName ?? ''}
             loading="lazy"
             className={cssClassForCard(card)}
           />
+          <div className="p-4">
+          {card.displayName !== undefined ? (
+            <div className="text-m">
+              {card.displayName}
+            </div>
+          ) : null}
           {card.prices && (
             <SetCardsListPricing prices={card.prices} />
           )}
+          </div>
         </ImageListItem>
+        </Paper>
     ))}
     </ImageList>
   );

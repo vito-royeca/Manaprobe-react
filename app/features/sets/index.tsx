@@ -1,7 +1,9 @@
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
-import Box from "@mui/material/Box";
-import CircularProgress from "@mui/material/CircularProgress";
+import { 
+  Alert,
+  AlertTitle,
+  Box,
+  CircularProgress 
+} from "@mui/material";
 import { useQuery } from "@apollo/client/react";
 
 import { apolloLoader } from "~/utils/apollo";

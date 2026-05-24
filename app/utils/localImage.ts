@@ -18,8 +18,6 @@ export const localImageURL = (c: MGCard, image: 'normal' | 'png' | 'art_crop') =
     set = array[0];
   }
   
-  console.log(`${c.id}: ${set}`)
-
   switch (c.set?.id) {
     case 'ced':
       cardBackURL = '/images/collectorscardback-hq.png';
