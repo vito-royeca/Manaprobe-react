@@ -2,7 +2,7 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { useMediaQuery, useTheme } from "@mui/material";
 
-import { localImageURL } from "~/utils/localImage";
+import { cssClassForCard, localImageURL } from "~/utils/localImage";
 import type { MGCard } from "~/types";
 import SetCardsListPricing from "./SetCardsListPricing";
 
@@ -37,6 +37,7 @@ const SetCardsList = ({ cards }: SetCardsListProps) => {
             src={localImageURL(card, 'normal')}
             alt={card.name ?? ''}
             loading="lazy"
+            className={cssClassForCard(card)}
           />
           {card.prices && (
             <SetCardsListPricing prices={card.prices} />
