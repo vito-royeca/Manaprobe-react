@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 import type { MGCard } from "~/types";
 
 export const localImageURL = (c: MGCard, image: 'normal' | 'png' | 'art_crop') => {
