@@ -2,6 +2,7 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { useMediaQuery, useTheme } from "@mui/material";
 
+import { localImageURL } from "~/utils/localImage";
 import type { MGCard } from "~/types";
 import SetCardsListPricing from "./SetCardsListPricing";
 
@@ -27,24 +28,13 @@ const SetCardsList = ({ cards }: SetCardsListProps) => {
     return 4; // default for lg and xl
   };
 
-  const localImageURL = (c: MGCard) => {
-    const array = c.id.split('_');
-    const hasFaces = c.faces && c.faces.length > 0;
-
-    const imageURL = array.length == 3
-      ? `/images/cards/${array[0]}/${array[1]}/${array[2]}${hasFaces ? '_0' : ''}/normal.jpg`
-      : c.normalURL;
-
-    return imageURL;
-  }
-
   return ( 
     <ImageList sx={{ width: '100%', height: 'auto' }} gap={10} cols={getCols()}>
       {cards.map((card) => (
         <ImageListItem key={card.id}>
           <img
-            srcSet={localImageURL(card)}
-            src={localImageURL(card)}
+            srcSet={localImageURL(card, 'normal')}
+            src={localImageURL(card, 'normal')}
             alt={card.name ?? ''}
             loading="lazy"
           />
