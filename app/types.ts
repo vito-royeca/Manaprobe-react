@@ -29,6 +29,8 @@ export type MGArtist = {
 };
 
 export type MGCard = {
+  normalURL: any;
+  id: Key | null | undefined;
   __typename?: 'MGCard';
   arenaId?: Maybe<Scalars['String']['output']>;
   artCropUrl?: Maybe<Scalars['String']['output']>;
@@ -174,6 +176,9 @@ export type MGFrameEffect = {
 };
 
 export type MGLanguage = {
+  id: any;
+  displayID: ReactNode;
+  displayName: string;
   __typename?: 'MGLanguage';
   code: Scalars['String']['output'];
   displayCode?: Maybe<Scalars['String']['output']>;
@@ -229,6 +234,7 @@ export type MGSectionedSets = {
 };
 
 export type MGSet = {
+  set: any;
   id: string;
   __typename?: 'MGSet';
   bigLogoURL?: Maybe<Scalars['String']['output']>;

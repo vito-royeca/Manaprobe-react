@@ -1,10 +1,16 @@
 import { gql, type TypedDocumentNode } from "@apollo/client/core/index.js";
 import { apolloLoader } from "~/utils/apollo";
 import { useReadQuery } from "@apollo/client/react/compiled";
+import { Suspense } from "react";
 import { useLoaderData } from "react-router";
 
 import type { Route } from "./+types";
-import { FRAGMENTS } from "~/utils/fragments";
+import { 
+  FRAGMENTS,
+  SectionedSets_FRAGMENT,
+  SetInfo_FRAGMENT,
+  SetBasicInfo_FRAGMENT,  
+} from "~/utils/fragments";
 import SetsListPage from "./components/SetsList";
 import type { MGSectionedSets, MGSet } from "~/types";
 
@@ -14,7 +20,9 @@ const GET_SETS: TypedDocumentNode<MGSectionedSets> = gql`
       ...SectionedSets
     }
   }
-  ${FRAGMENTS}
+  ${SectionedSets_FRAGMENT},
+  ${SetInfo_FRAGMENT},
+  ${SetBasicInfo_FRAGMENT},
 `;
 
 export const loader = apolloLoader<Route.LoaderArgs>()(({ preloadQuery }) => {

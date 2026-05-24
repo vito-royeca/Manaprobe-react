@@ -10,5 +10,6 @@ export default [
   ]),
   layout('./layouts/feature.tsx', [
     route('sets', './features/sets/index.tsx'),
+    route('set/:id/:lang', './features/set/index.tsx'),
   ]),
 ] satisfies RouteConfig;

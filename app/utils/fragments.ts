@@ -1,7 +1,259 @@
 import { gql } from "@apollo/client";
 
+export const SectionedSets_FRAGMENT = gql`
+fragment SectionedSets on MGSectionedSets {
+  __typename
+  count
+  sections
+  sectionedSets {
+    __typename
+    count
+    section
+    sets {
+        __typename
+        ...SetInfo
+      }
+  }
+}
+`;
+
+export const SetInfo_FRAGMENT = gql`
+fragment SetInfo on MGSet {
+  __typename
+  ...SetBasicInfo
+  children {
+    __typename
+    ...SetBasicInfo
+    children {
+      __typename
+      ...SetBasicInfo
+        children {
+          __typename
+          ...SetBasicInfo
+        }
+    }
+  }
+}
+`;
+
+export const SetBasicInfo_FRAGMENT = gql`
+fragment SetBasicInfo on MGSet {
+  __typename
+  id: code
+  isOnlineOnly
+  name
+  cardCount
+  keyruneUnicode
+  keyruneClass
+  releaseDate
+  bigLogoURL
+  smallLogoURL
+  yearSection
+  languages {
+    __typename
+    id: code
+    displayID: displayCode
+    name
+  }
+  setBlock {
+    __typename
+    name
+  }
+  setType {
+    __typename
+    name
+  }
+}
+`;
+
+export const ColorInfo_FRAGMENT = gql`
+fragment ColorInfo on MGColor {
+  __typename
+  name
+  symbol
+}
+`;
+
+export const InnerCardInfo_FRAGMENT = gql`
+fragment InnerCardInfo on MGCard {
+  __typename
+  artCropURL: artCropUrl
+  collectorNumber
+  displayManaCost
+  displayName
+  displayPowerToughness
+  displayTypeLine
+  id: newId
+  faceOrder
+  flavorText
+  keyruneColor
+  loyalty
+  manaCost
+  numberOrder
+  name
+  normalURL: normalUrl
+  numberOrder
+  oracleText
+  pngURL: pngUrl
+  power
+  printedName
+  printedText
+  printedTypeLine
+  toughness
+  typeLine
+  colors {
+    __typename
+    ...ColorInfo
+  }
+  language {
+    __typename
+    id: code
+    displayID: displayCode
+    name
+  }
+  layout {
+    __typename
+    id: code
+    name
+    description
+  }
+  prices {
+    __typename
+    low
+    median
+    high
+    market
+    directLow
+    isFoil
+  }
+  rarity {
+    __typename
+    name
+  }
+  set {
+    __typename
+    name
+    keyruneUnicode
+  }
+  supertypes {
+    __typename
+    name
+  }
+}
+`;
+
+export const CardBasicInfo_FRAGMENT = gql`
+fragment CardBasicInfo on MGCard {
+  __typename
+  ...InnerCardInfo
+  faces {
+    __typename
+    ...InnerCardInfo
+  }
+  printings: otherPrintings {
+    __typename
+    ...InnerCardInfo
+  }
+  otherLanguages {
+    __typename
+    ...InnerCardInfo
+  }
+  variations {
+    __typename
+    ...InnerCardInfo
+  }
+}
+`;
+
+export const CardCompleteInfo_FRAGMENT = gql`
+fragment CardCompleteInfo on MGCard {
+  __typename
+  ...CardBasicInfo
+  arenaID: arenaId
+  cmc
+  handModifier
+  isBooster
+  isDigital
+  isFoil
+  isFullArt
+  isHighresImage
+  isNonfoil
+  isOversized
+  isPromo
+  isReprint
+  isReserved
+  isStorySpotlight
+  isTextless
+  lifeModifier
+  mtgoFoilID: mtgoFoilId
+  mtgoID: mtgoId
+  multiverseIDs: multiverseIds
+  releasedAt
+  tcgplayerID: tcgplayerId
+  toughness
+  artists {
+    __typename
+    name
+  }
+  colorIdentities{
+    __typename
+    ...ColorInfo
+  }
+  colorIndicators{
+    __typename
+    ...ColorInfo
+  }
+  componentParts {
+    __typename
+    card {
+      __typename
+      ...CardBasicInfo
+    }
+    component {
+      __typename
+      name
+    }
+  }
+  formatLegalities {
+    __typename
+    format {
+      __typename
+      name
+    }
+    legality {
+      __typename
+      name
+    }
+  }
+  frame {
+    __typename
+    name
+    description
+  }
+  frameEffects {
+    __typename
+    name
+    description
+  }
+  rulings {
+    __typename
+    datePublished
+    id
+    text
+  }
+  subtypes {
+    __typename
+    name
+  }
+  watermark {
+    __typename
+    name
+  }
+}
+`;
+
 export const FRAGMENTS = gql`
-    fragment SectionedSets on MGSectionedSets {
+ fragment SectionedSets on MGSectionedSets {
   __typename
   count
   sections
