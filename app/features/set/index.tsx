@@ -6,6 +6,7 @@ import { useParams } from "react-router";
 import type { MGSet } from '~/types';
 import SetCardsList from "./components/SetCardsList";
 import SetHeader from "./components/SetHeader";
+import Spinner from "~/components/Spinner";
 
 import { 
   CardBasicInfo_FRAGMENT,
@@ -44,7 +45,7 @@ const SetPage = () => {
     },
   });
    
-  if (loading) return <p>Loading ...</p>;
+  if (loading) return <Spinner />;
   if (error) return <p>Error: {error.message}</p>;
    
   return (

@@ -1,18 +1,16 @@
 import { gql, type TypedDocumentNode } from "@apollo/client/core/index.js";
-import { apolloLoader } from "~/utils/apollo";
-import { useReadQuery } from "@apollo/client/react/compiled";
-import { Suspense } from "react";
-import { useLoaderData } from "react-router";
+import { useQuery } from "@apollo/client/react";
 
+import { apolloLoader } from "~/utils/apollo";
+import type { MGSectionedSets, MGSet } from "~/types";
 import type { Route } from "./+types";
 import { 
-  FRAGMENTS,
   SectionedSets_FRAGMENT,
   SetInfo_FRAGMENT,
   SetBasicInfo_FRAGMENT,  
 } from "~/utils/fragments";
 import SetsListPage from "./components/SetsList";
-import type { MGSectionedSets, MGSet } from "~/types";
+import Spinner from "~/components/Spinner";
 
 const GET_SETS: TypedDocumentNode<MGSectionedSets> = gql`
   query SetsByYear {
@@ -33,8 +31,10 @@ export const loader = apolloLoader<Route.LoaderArgs>()(({ preloadQuery }) => {
 });
 
 function SetsPage() {
-  const { setsQueryRef } = useLoaderData<typeof loader>();
-  const { data } = useReadQuery(setsQueryRef);
+  const { loading, error, data } = useQuery(GET_SETS);
+  if (loading) return <Spinner />;
+  if (error) return <p>Error: {error.message}</p>;
+
   let sets: MGSet[] = [];
 
   if (data !== undefined) {
