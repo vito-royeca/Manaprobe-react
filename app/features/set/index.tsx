@@ -14,8 +14,6 @@ import {
   SetBasicInfo_FRAGMENT,
   SetInfo_FRAGMENT,
 } from '~/utils/fragments';
-import type { Route } from './+types';
-import type { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react";
 
 const GET_SET: TypedDocumentNode<MGSet> = gql`
   query Set($input: SetByIDInput!) {

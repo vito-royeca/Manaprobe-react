@@ -27,13 +27,22 @@ const SetCardsList = ({ cards }: SetCardsListProps) => {
     return 4; // default for lg and xl
   };
 
+  const localImageURL = (c: MGCard) => {
+    // Implement logic to determine the local image URL based on the card data
+    // This is a placeholder and should be replaced with actual logic
+    const array = c.normalURL.split('_');
+    return array.length == 3
+      ? `/images/cards/${array[0]}/${array[1]}/${array[2]}/normal.jpg`
+      : c.normalURL;
+  }
+
   return ( 
     <ImageList sx={{ width: '100%', height: 'auto' }} gap={10} cols={getCols()}>
       {cards.map((card) => (
         <ImageListItem key={card.id}>
           <img
-            srcSet={card.normalURL}
-            src={card.normalURL}
+            srcSet={localImageURL(card)}
+            src={localImageURL(card)}
             alt={card.name ?? ''}
             loading="lazy"
           />
