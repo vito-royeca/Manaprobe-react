@@ -28,12 +28,12 @@ const SetCardsList = ({ cards }: SetCardsListProps) => {
   };
 
   const localImageURL = (c: MGCard) => {
-    // Implement logic to determine the local image URL based on the card data
-    // This is a placeholder and should be replaced with actual logic
-    const array = c.normalURL.split('_');
-    return array.length == 3
+    const array = c.id.split('_');
+    const imageURL = array.length == 3
       ? `/images/cards/${array[0]}/${array[1]}/${array[2]}/normal.jpg`
       : c.normalURL;
+
+    return imageURL;
   }
 
   return ( 
