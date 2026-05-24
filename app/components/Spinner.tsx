@@ -1,4 +1,4 @@
-import { BarLoader } from 'react-spinners';
+import { ClipLoader } from "react-spinners";
 
 const cssOverride = {
     display: 'block',
@@ -7,18 +7,18 @@ const cssOverride = {
 
 type SpinnerProps = {
     color?: string;
-    width?: number;
+    size?: number;
 };
 
 const Spinner = ({
-    color='blue',
-    width=150
+    color='purple',
+    size=150
 }: SpinnerProps) => {
   return ( 
     <div>
-      <BarLoader 
+      <ClipLoader
         color={color}
-        width={width}
+        size={size}
         cssOverride={cssOverride}
         aria-label='Loading...'
       />
