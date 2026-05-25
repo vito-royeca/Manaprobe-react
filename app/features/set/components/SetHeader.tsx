@@ -38,7 +38,7 @@ const SetHeader = ({ set }: SetHeaderProps) => {
             disableElevation
             disabled={language.id === lang}
             >
-              {language.displayID}
+              {language.name}
             </Button>
         ))}
         </p>

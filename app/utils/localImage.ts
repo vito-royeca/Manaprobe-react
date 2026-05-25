@@ -1,5 +1,7 @@
 import type { MGCard } from "~/types";
 
+const VITE_ENV = import.meta.env.VITE_ENV;
+
 export const localImageURL = (c: MGCard, image: 'normal' | 'png' | 'art_crop') => {
   const array = c.id.split('_');
   // const hasFaces = c.faces && c.faces.length > 0;
@@ -27,8 +29,10 @@ export const localImageURL = (c: MGCard, image: 'normal' | 'png' | 'art_crop') =
       cardBackURL = '/images/cardback-hq.png';
   };  
 
-  return array.length == 3
-    ? imageURL
+  return VITE_ENV === 'production'
+    ? array.length == 3
+      ? imageURL
+      : cardBackURL
     : cardBackURL;
 }
 

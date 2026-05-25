@@ -6,7 +6,7 @@ export function meta() {
   ];
 }
 
-export default function NotFound() {
+export default function NotFoundPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 sm:px-6 lg:px-8 text-center">
       <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-brand-primary mb-4">

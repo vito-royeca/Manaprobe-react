@@ -1,7 +1,12 @@
 import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
   ImageList,
   ImageListItem,
-  Paper
+  Paper,
+  Typography
 } from "@mui/material";
 import { useMediaQuery, useTheme } from "@mui/material";
 
@@ -35,27 +40,47 @@ const SetCardsList = ({ cards }: SetCardsListProps) => {
     
     <ImageList sx={{ width: '100%', height: 'auto' }} gap={20} cols={getCols()}>
       {cards.map((card) => (
-        <Paper>
-        <ImageListItem key={card.id}>
-          <img
-            srcSet={localImageURL(card, 'normal')}
-            src={localImageURL(card, 'normal')}
-            alt={card.displayName ?? ''}
-            loading="lazy"
-            className={cssClassForCard(card)}
-          />
-          <div className="p-4">
-          {card.displayName !== undefined ? (
-            <div className="text-m">
-              {card.displayName}
-            </div>
-          ) : null}
-          {card.prices && (
-            <SetCardsListPricing prices={card.prices} />
-          )}
-          </div>
-        </ImageListItem>
-        </Paper>
+        // <Paper elevation={3} square={false}>
+        // <ImageListItem key={card.id}>
+        //   <img
+        //     srcSet={localImageURL(card, 'normal')}
+        //     src={localImageURL(card, 'normal')}
+        //     alt={card.displayName ?? ''}
+        //     loading="lazy"
+        //     className={cssClassForCard(card)}
+        //   />
+        //   <div className="p-4">
+        //   {card.displayName !== undefined ? (
+        //     <div className="text-m">
+        //       {card.displayName}
+        //     </div>
+        //   ) : null}
+        //   {card.prices && (
+        //     <SetCardsListPricing prices={card.prices} />
+        //   )}
+        //   </div>
+        // </ImageListItem>
+        // </Paper>
+        <Card>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              width="100%"
+              height="auto"
+              image={localImageURL(card, 'normal')}
+              alt={card.displayName ?? ''}
+              className={cssClassForCard(card)}
+            />
+            <CardContent>
+              <Typography gutterBottom component="div">
+                {card.displayName}
+              </Typography>
+              {card.prices && (
+                <SetCardsListPricing prices={card.prices} />
+              )}
+            </CardContent>
+          </CardActionArea>
+        </Card>
     ))}
     </ImageList>
   );

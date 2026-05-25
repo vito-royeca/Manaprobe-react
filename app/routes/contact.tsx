@@ -42,7 +42,7 @@ export function validateContactForm(data: ContactFormData): ContactFormErrors {
   return errors;
 }
 
-export default function Contact() {
+export default function ContactPage() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
