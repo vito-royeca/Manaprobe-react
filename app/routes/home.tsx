@@ -1,3 +1,11 @@
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
+
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -72,28 +80,23 @@ function ScreenshotSection() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary text-center mb-12">
           See It in Action
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
           <div className="flex justify-center">
-            <img
-              src="/images/screenshot-1.png"
-              alt="Manaprobe app showing life counter interface with player scores"
-              width={390}
-              height={844}
-              loading="lazy"
-              className="rounded-2xl shadow-xl max-w-full h-auto w-full max-w-[280px] sm:max-w-[320px]"
-            />
+            <Card sx={{ maxWidth: 300 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="video"
+                  width="50%"
+                  height="auto"
+                  image="/videos/action01.m4v"
+                  title="Manaprobe iOS mobile app in action"
+                  autoPlay
+                  muted
+                  loop
+                  controls
+                />
+              </CardActionArea>
+            </Card>
           </div>
-          <div className="flex justify-center">
-            <img
-              src="/images/screenshot-2.png"
-              alt="Manaprobe app showing game state tracking with multiple players"
-              width={390}
-              height={844}
-              loading="lazy"
-              className="rounded-2xl shadow-xl max-w-full h-auto w-full max-w-[280px] sm:max-w-[320px]"
-            />
-          </div>
-        </div>
       </div>
     </section>
   );

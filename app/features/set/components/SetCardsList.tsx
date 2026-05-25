@@ -4,11 +4,10 @@ import {
   CardContent,
   CardMedia,
   ImageList,
-  ImageListItem,
-  Paper,
-  Typography
+  Typography,
+  useMediaQuery,
+  useTheme
 } from "@mui/material";
-import { useMediaQuery, useTheme } from "@mui/material";
 
 import { cssClassForCard, localImageURL } from "~/utils/localImage";
 import type { MGCard } from "~/types";
@@ -40,27 +39,6 @@ const SetCardsList = ({ cards }: SetCardsListProps) => {
     
     <ImageList sx={{ width: '100%', height: 'auto' }} gap={20} cols={getCols()}>
       {cards.map((card) => (
-        // <Paper elevation={3} square={false}>
-        // <ImageListItem key={card.id}>
-        //   <img
-        //     srcSet={localImageURL(card, 'normal')}
-        //     src={localImageURL(card, 'normal')}
-        //     alt={card.displayName ?? ''}
-        //     loading="lazy"
-        //     className={cssClassForCard(card)}
-        //   />
-        //   <div className="p-4">
-        //   {card.displayName !== undefined ? (
-        //     <div className="text-m">
-        //       {card.displayName}
-        //     </div>
-        //   ) : null}
-        //   {card.prices && (
-        //     <SetCardsListPricing prices={card.prices} />
-        //   )}
-        //   </div>
-        // </ImageListItem>
-        // </Paper>
         <Card>
           <CardActionArea>
             <CardMedia
