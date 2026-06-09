@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# PROVIDE: manaprobereact
+# REQUIRE: LOGIN cleanvar
+# KEYWORD: shutdown
+
+# Put this script in /usr/local/etc/rc.d and make it executable. Then add
+# "manaprobereact_enable=YES" to /etc/rc.conf to enable it
+
+PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"
+
+. /etc/rc.subr
+
+name="manaprobereact"
+workdir="/var/db/Manaprobe-react"
+npm_cmd="/usr/local/bin/npm run start &"
+
+start_cmd="${name}_start"
+stop_cmd=":"
+
+: ${dummy_svcj_options:=""}
+
+manaprobereact_start()
+{
+       su -m www -c "cd ${workdir} && ${npm_cmd}"
+}
+
+load_rc_config $name
+run_rc_command "$1"
