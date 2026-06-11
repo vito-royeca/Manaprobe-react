@@ -26,7 +26,7 @@ function SearchForm() {
     e.preventDefault();
     const trimmed = query.trim();
     if (trimmed) {
-      navigate(`/search?q=${encodeURIComponent(trimmed)}`);
+      navigate(`/search?query=${encodeURIComponent(trimmed)}`);
     }
   }
 

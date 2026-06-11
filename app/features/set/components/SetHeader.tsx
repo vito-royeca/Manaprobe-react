@@ -41,7 +41,7 @@ const SetHeader = ({ set }: SetHeaderProps) => {
               {language.name}
             </Button>
         ))}
-        </p>
+      </p>
     </div>
   );
 }
