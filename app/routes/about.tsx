@@ -11,7 +11,7 @@ export function meta() {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-4xl">
       {/* Page Heading */}
       <h1 className="mb-8 text-3xl font-bold text-brand-dark md:text-4xl lg:text-5xl">
         About Manaprobe

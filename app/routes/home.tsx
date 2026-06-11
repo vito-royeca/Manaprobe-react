@@ -21,7 +21,7 @@ export function meta({}: Route.MetaArgs) {
 
 function HeroSection() {
   return (
-    <section className="bg-surface-dark py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-center">
+    <section className="bg-surface-dark py-16 sm:py-24 text-center">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-on-dark mb-6">
           Manaprobe
@@ -75,7 +75,7 @@ function HeroSection() {
 
 function ScreenshotSection() {
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-surface-alt">
+    <section className="py-16 sm:py-20 bg-surface-alt">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary text-center mb-12">
           See It in Action
@@ -191,7 +191,7 @@ function FeaturesHighlight() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-20">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary text-center mb-4">
           Why Manaprobe?

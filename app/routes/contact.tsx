@@ -259,7 +259,7 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="max-w-2xl mx-auto px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+    <section className="max-w-2xl mx-auto">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark mb-6">
         Contact Us
       </h1>
