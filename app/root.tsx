@@ -1,5 +1,5 @@
 import { ApolloHydrationHelper } from "@apollo/client-integration-react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   isRouteErrorResponse,
   Links,
@@ -8,12 +8,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 
 import type { Route } from "./+types/root";
 import "./app.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { getResolvedTheme, applyTheme, onSystemThemeChange, type Theme } from "~/utils/theme";
+import { createAppTheme } from "~/utils/muiTheme";
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -72,6 +74,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
     return cleanup;
   }, []);
 
+  const muiTheme = useMemo(() => createAppTheme(theme), [theme]);
+
   return (
     <html lang="en">
       <head>
@@ -83,9 +87,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <ApolloHydrationHelper>
-          {children}
-        </ApolloHydrationHelper>
+        <ThemeProvider theme={muiTheme}>
+          <CssBaseline />
+          <ApolloHydrationHelper>
+            {children}
+          </ApolloHydrationHelper>
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
