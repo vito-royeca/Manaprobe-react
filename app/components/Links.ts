@@ -1,6 +1,6 @@
 export const NAV_LINKS = [
   { path: "/", label: "Home" },
-  { path: "/features", label: "Features" },
+  { path: "/mobileapp", label: "Mobile App" },
   { path: "/sets", label: "Sets" },
   { path: "/about", label: "About" },
   { path: "/contact", label: "Contact" },
