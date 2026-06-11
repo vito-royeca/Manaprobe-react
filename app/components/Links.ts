@@ -8,6 +8,6 @@ export const NAV_LINKS = [
 
 export const SOCIAL_LINKS = [
   // { href: "https://twitter.com/manaprobe", label: "Twitter" },
-  // { href: "https://github.com/manaprobe", label: "GitHub" },
+  { href: "https://github.com/vito-royeca/Manaprobe-react", label: "GitHub" },
   { href: "mailto:hello@manaprobe.com", label: "Email" },
 ] as const;

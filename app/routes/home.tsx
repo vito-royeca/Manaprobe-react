@@ -21,17 +21,18 @@ export function meta({}: Route.MetaArgs) {
 
 function HeroSection() {
   return (
-    <section className="bg-surface-dark py-16 sm:py-24 text-center">
+    <section className="py-16 sm:py-24 text-center">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-on-dark mb-6">
           Manaprobe
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-text-on-dark/80 mb-8 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
+        {/* <p className="text-sm md:text-base lg:text-lg text-text-secondary text-center mb-12 max-w-2xl mx-auto"> */}
           The ultimate mobile app for Magic: The
           Gathering. Keep track of your card collection, decks, and more —
           all from your phone.
         </p>
-        <p className="text-base sm:text-lg md:text-xl text-text-on-dark/80 mb-8 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
           Coming soon to iOS and Android.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -53,7 +54,7 @@ function HeroSection() {
           </a>
           <a
             href="#"
-            className="inline-flex items-center gap-2 border-2 border-text-on-dark text-text-on-dark font-semibold px-6 py-3 rounded-lg hover:bg-text-on-dark/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark"
+            className="inline-flex items-center gap-2 bg-text-on-dark text-surface-dark font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-text-on-dark/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark"
           >
             <button className="text-white disabled:text-gray-400" disabled>
               <svg
