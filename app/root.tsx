@@ -1,5 +1,4 @@
 import { ApolloHydrationHelper } from "@apollo/client-integration-react-router";
-import { useEffect, useMemo, useState } from "react";
 import {
   isRouteErrorResponse,
   Links,
@@ -8,14 +7,12 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-import { ThemeProvider, CssBaseline } from "@mui/material";
 
 import type { Route } from "./+types/root";
 import "./app.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { getResolvedTheme, applyTheme, onSystemThemeChange, type Theme } from "~/utils/theme";
-import { createAppTheme } from "~/utils/muiTheme";
+import { AppThemeProvider } from "~/utils/ThemeContext";
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -59,23 +56,6 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
-
-  useEffect(() => {
-    const t = getResolvedTheme();
-    applyTheme(t);
-    setTheme(t);
-
-    const cleanup = onSystemThemeChange((t) => {
-      applyTheme(t)
-      setTheme(t);
-      console.log("Resolved theme:", t);
-    });
-    return cleanup;
-  }, []);
-
-  const muiTheme = useMemo(() => createAppTheme(theme), [theme]);
-
   return (
     <html lang="en">
       <head>
@@ -87,12 +67,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <ThemeProvider theme={muiTheme}>
-          <CssBaseline />
+        <AppThemeProvider>
           <ApolloHydrationHelper>
             {children}
           </ApolloHydrationHelper>
-        </ThemeProvider>
+        </AppThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>

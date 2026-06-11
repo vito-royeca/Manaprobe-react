@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import type { Theme as AppTheme } from "./theme";
+import type { Theme as AppTheme } from "./ThemeContext";
 
 /**
  * Create an MUI theme that matches the app's current light/dark mode.

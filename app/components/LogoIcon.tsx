@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router";
-import { getResolvedTheme, type Theme } from "~/utils/theme";
+import { useAppTheme } from "~/utils/ThemeContext";
 
 export default function LogoIcon() {
-  const [theme, setTheme] = useState<Theme>("light");
+  const { theme } = useAppTheme();
   const [loaded, setLoaded] = useState(false);
 
-  // Initialize theme state from resolved theme (SSR-safe)
   useEffect(() => {
-    setTheme(getResolvedTheme());
     setLoaded(true);
   }, []);
 
