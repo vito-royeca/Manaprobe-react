@@ -37,11 +37,11 @@ const SearchPage = () => {
   return (
     <div>
       {data && (
-        <SearchHeader count={data.count}/>
+        <SearchHeader count={data.search.count}/>
       )}
       <div  className="mb-4" />
       {data && (
-        <SearchCardsList cards={data.cards} />
+        <SearchCardsList cards={data.search.cards} />
       )}
     </div>
   );
