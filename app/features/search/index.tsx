@@ -5,20 +5,19 @@ import {
   Box,
   CircularProgress 
 } from "@mui/material";
-import { useParams } from "react-router";
+import { useSearchParams } from "react-router";
 
 import { SEARCH } from "./query";
 import SearchCardsList from "./components/SearchCardsList";
 import SearchHeader from "./components/SearchHeader";
 
 const SearchPage = () => {
-  const { query } = useParams<{ query: string }>();
-  
+  const [searchParams, _] = useSearchParams();
+  const query = searchParams.get("query") || "";
+
   const { loading, error, data } = useQuery(SEARCH, {
     variables: {
-      input: {
-        query: query,
-      },
+      query: query,
     },
   });
    
@@ -38,11 +37,11 @@ const SearchPage = () => {
   return (
     <div>
       {data && (
-        <SearchHeader count={data.length}/>
+        <SearchHeader count={data.count}/>
       )}
       <div  className="mb-4" />
       {data && (
-        <SearchCardsList cards={data} />
+        <SearchCardsList cards={data.cards} />
       )}
     </div>
   );
