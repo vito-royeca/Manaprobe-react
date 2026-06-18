@@ -1,17 +1,21 @@
 #!/bin/sh
 
-# PROVIDE: manaprobereact
+# PROVIDE: manaprobe_react
 # REQUIRE: LOGIN cleanvar
 # KEYWORD: shutdown
 
 # Put this script in /usr/local/etc/rc.d and make it executable. Then add
-# "manaprobereact_enable=YES" to /etc/rc.conf to enable it
+# "manaprobe_react_enable=YES" to /etc/rc.conf to enable it, i.e.:
+# `cp bin/manaprobe_react /usr/local/etc/rc.d/manaprobe_react`
+# `chmod a+x /usr/local/etc/rc.d/manaprobe_react`
+# `service manaprobe_react enable`
+# To start the service, run "service manaprobe_react start" or reboot the system.
 
 PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"
 
 . /etc/rc.subr
 
-name="manaprobereact"
+name="manaprobe_react"
 workdir="/var/db/Manaprobe-react"
 npm_cmd="/usr/local/bin/npm run start &"
 
@@ -20,7 +24,7 @@ stop_cmd=":"
 
 : ${dummy_svcj_options:=""}
 
-manaprobereact_start()
+manaprobe_react_start()
 {
        su -m www -c "cd ${workdir} && ${npm_cmd}"
 }
