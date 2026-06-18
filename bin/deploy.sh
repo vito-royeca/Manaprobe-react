@@ -1,6 +1,7 @@
 git pull
 npm run build
 cd build/client/images
-ln -s ~/images/cards .
-ln -s ~/images/sets .
-sudo systemctl restart  manaprobe-react
+ln -s /mnt/manaprobe/images/cards .
+ln -s /mnt/manaprobe/images/sets .
+#sudo systemctl restart  manaprobe-react
+service manaprobe_react restart
