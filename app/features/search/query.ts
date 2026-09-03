@@ -9,8 +9,8 @@ import {
 } from '~/utils/fragments';
 
 export const SEARCH: TypedDocumentNode<MGCards> = gql`
-  query Search($query: String!) {
-    search(query: $query) {
+  query CardsSearch($query: String!) {
+    cardsSearch(query: $query) {
       count
       cards {
         ...CardBasicInfo
